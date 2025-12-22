@@ -108,7 +108,7 @@ a {
 
 body {
   font-family: var(--font-base);
-  background-color: var(--clr-primary-light-3);
+  background-color: var(--clr-primary-light-2);
   color: var(--clr-primary-dark);
 }
 
@@ -129,8 +129,8 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 .content-grid,
 .fullwidth {
   --_min-margin-width: 1rem;
-  --_content-width: 80rem;
-  --_breakin-width: 48rem;
+  --_content-width: 70rem;
+  --_breakin-width: 70ch;
 
   /* calculate total column size of content area on each side of the breakin content by substracting the breakin width from the content width and dividing it by 2*/
   --_content-col-size: calc(
@@ -164,7 +164,6 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   /* if child elements have the .breakin class put in the breakin column */
   > .breakin-grid {
     grid-column: breakin;
-    border: 1px solid green;
   }
 }
 
@@ -185,6 +184,18 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 
 .clr-bg-primary-light1 {
   background-color: var(--clr-primary-light-1);
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.py-lg {
+  padding-block: var(--flow-space-lg);
 }
 
 .txt-center {
@@ -290,6 +301,79 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   }
 }
 
+/* main */
+main {
+}
+
+.hero {
+  .grid-gallery {
+    grid-template-areas:
+      'one two'
+      'three four'
+      'five six';
+
+    border: 0.88rem solid var(--clr-primary-light-1);
+    box-shadow: var(--border-shadow);
+    grid-template-rows: repeat(2, minmax(15rem, 1fr));
+
+    @media (width > 32rem) {
+      grid-template-areas:
+        'one two three'
+        'four five six';
+    }
+
+    @media (width > 64rem) {
+      block-size: 550px;
+      grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+      grid-template-areas:
+        'one one two three four four'
+        'one one five five six six';
+      overflow: hidden;
+    }
+
+    > .item {
+      inline-size: 100%;
+      block-size: 100%;
+      img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+    }
+
+    > [data-index='1'] {
+      grid-area: one;
+    }
+
+    > [data-index='2'] {
+      grid-area: two;
+    }
+
+    > [data-index='3'] {
+      grid-area: three;
+    }
+
+    > [data-index='4'] {
+      grid-area: four;
+    }
+
+    > [data-index='5'] {
+      grid-area: five;
+    }
+
+    > [data-index='6'] {
+      grid-area: six;
+    }
+  }
+}
+
+/* .page-footer */
+.page-footer {
+  a {
+    color: var(--clr-primary-light-1);
+  }
+}
+
 /* EXECEPTIONS*/
 /* header */
 .page-header > .hamburger {
@@ -323,14 +407,6 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
       transform: rotateX(0) translateX(-0.63rem);
       visibility: visible;
     }
-  }
-}
-
-/* .page-footer */
-.page-footer {
-  padding-block: var(--spacing-base);
-  a {
-    color: var(--clr-primary-light-1);
   }
 }
 

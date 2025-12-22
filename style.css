@@ -108,7 +108,7 @@ a {
 
 body {
   font-family: var(--font-base);
-  background-color: var(--clr-accent-light-1);
+  background-color: var(--clr-primary-light-3);
   color: var(--clr-primary-dark);
 }
 
@@ -128,38 +128,213 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 */
 .content-grid,
 .fullwidth {
-  --_content-width: 70rem;
   --_min-margin-width: 1rem;
+  --_content-width: 80rem;
+  --_breakin-width: 48rem;
+
+  /* calculate total column size of content area on each side of the breakin content by substracting the breakin width from the content width and dividing it by 2*/
+  --_content-col-size: calc(
+    (var(--_content-width) - var(--_breakin-width)) / 2
+  );
+
+  /* max breakin width or breakin area size 100% minus the gap on each side if content size is larger than screen width  */
+  --_breakin-size: min(
+    100% - var(--_min-margin-width) * 2,
+    var(--_breakin-width)
+  );
 
   display: grid;
   grid-template-columns:
-    [fullwidth-start] minmax(var(--_min-margin-width), 1fr) [content-start] min(
-      100% - var(--_min-margin-width) * 2,
-      var(--_content-width)
-    )
-    [content-end] minmax(var(--_min-margin-width), 1fr) [fullwidth-end];
-  /*  grid-template-rows: [fullwidth-start] auto [fullwidth-end];*/
+    [fullwidth-start] minmax(var(--_min-margin-width), 1fr)
+    [content-start] minmax(0, var(--_content-col-size))
+    [breakin-start] var(--_breakin-size) [breakin-end]
+    minmax(0, var(--_content-col-size)) [content-end]
+    minmax(var(--_min-margin-width), 1fr) [fullwidth-end];
+
+  /* put child elements in the content column if they don't have the .fullwidth or .breakin class */
+  > *:not(.breakin, .fullwidth) {
+    grid-column: content;
+  }
+
+  /* if child elements have the .fullwidth class put in the fullwidth column */
+  > .fullwidth {
+    grid-column: fullwidth;
+  }
+
+  /* if child elements have the .breakin class put in the breakin column */
+  > .breakin-grid {
+    grid-column: breakin;
+    border: 1px solid green;
+  }
 }
 
-/* keep the content of the content-grid and fullwidth inside the content container */
-.content-grid > *,
-.fullwidth > * {
-  grid-column: content;
+.flex {
+  display: flex;
 }
 
-/* a bit more complex but more fancy/explicit version of above */
-/*.content-grid > :not(.fullwidth),
-.fullwidth > :not(.fullwidth) {
-  grid-column: content;
-}*/
-
-/* if we have a fullwidth inside of a content-grid put this in the fullwidth container */
-.content-grid > .fullwidth {
-  grid-column: fullwidth;
+.flex-center {
+  align-items: center;
+  justify-items: center;
 }
 
 /*** Utilities ***/
+.clr-bg-accent {
+  background-color: var(--clr-accent);
+  color: var(--clr-accent-light-1);
+}
 
+.clr-bg-primary-light1 {
+  background-color: var(--clr-primary-light-1);
+}
+
+.txt-center {
+  text-align: center;
+}
+
+/* blocks */
+
+/* header */
+.page-header {
+  position: relative;
+  padding-block: 1rem;
+  background-color: var(--clr-primary-light-1);
+  align-content: center;
+  justify-content: center;
+  text-transform: uppercase;
+
+  > .brand {
+    --_size: 3rem;
+    grid-row: 1/1;
+    justify-self: start;
+    gap: 0.5rem;
+
+    > svg {
+      block-size: var(--_size);
+      inline-size: var(--_size);
+      aspect-ratio: 1;
+    }
+  }
+}
+
+.page-header > .hamburger {
+  --_clr-txt: var(--clr-neutral-400);
+
+  grid-row: 1/1;
+  justify-self: end;
+  align-self: center;
+
+  block-size: max-content;
+  inline-size: 2rem;
+  overflow-x: hidden;
+  cursor: pointer;
+  color: var(--_clr-txt);
+
+  > .icon-menu > line {
+    transition: transform 250ms ease-in-out;
+  }
+}
+
+.page-header > .nav-main {
+  --_top: 5rem; /*64px*/
+  --_pos: 0.6rem; /*10px*/
+  background-color: var(--clr-primary-light-1);
+  block-size: calc(100vh - 5rem);
+  inline-size: 100vw;
+  position: absolute;
+  inset-block-start: var(--_top);
+  inset-inline-start: var(--_pos);
+  transform: rotateX(-90deg) translateX(calc(var(--_pos) * -1)); /* rotateX to collapse */
+  transform-origin: top center;
+  opacity: 0.3;
+  transition: 300ms all ease-out;
+
+  > .list > .item {
+    margin-block-end: 1rem;
+
+    .link {
+      display: block;
+      padding-block: 0.5rem;
+      text-decoration: none;
+      padding-inline-start: 1rem;
+      position: relative;
+
+      &::after {
+        display: block;
+        content: '';
+        inline-size: 100%;
+        block-size: 100%;
+        position: absolute;
+        z-index: -1;
+        inset-block-start: 0;
+        inset-inline-start: -1rem;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform 200ms ease-in-out;
+        background-color: var(--clr-accent);
+      }
+
+      &[data-state='current'] {
+        color: var(--clr-accent-light-1);
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+
+      &:hover {
+        color: var(--clr-accent-light-1);
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+
+/* EXECEPTIONS*/
+/* header */
+.page-header > .hamburger {
+  &:focus-within {
+    outline: 0.12rem dashed var(--clr-accent);
+    outline-offset: 0.18rem;
+  }
+
+  &:has(:hover, :active) {
+    --_clr-txt: var(--clr-neutral-900);
+  }
+
+  &:has(.nav-box:checked) {
+    > .icon-menu > line {
+      &:nth-of-type(1) {
+        transform: rotate(45deg) translate(0.28em, -0.3rem);
+      }
+
+      &:nth-of-type(2) {
+        transform: translateX(2rem);
+      }
+
+      &:nth-of-type(3) {
+        border: 1px solid sandybrown;
+        transform: rotate(-45deg) translate(-0.85rem, -0.1rem);
+      }
+    }
+
+    + .nav-main {
+      opacity: 1;
+      transform: rotateX(0) translateX(-0.63rem);
+      visibility: visible;
+    }
+  }
+}
+
+/* .page-footer */
+.page-footer {
+  padding-block: var(--spacing-base);
+  a {
+    color: var(--clr-primary-light-1);
+  }
+}
+
+/* for screen readers only */
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);

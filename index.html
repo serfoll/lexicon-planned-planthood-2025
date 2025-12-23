@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="preload"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="./style.css" />
 
@@ -86,40 +97,40 @@
             </p>
           </div>
           <ul class="grid grid-gallery" role="list">
-            <li class="item" data-index="1">
+            <li class="item" style="--_pos: one">
               <img
-                src="./assets/images/gallery/one.png"
-                alt="en svärmorstunga (Sansevieria) i vit keramikkruka"
+                src="./assets/images/gallery/ormbunke.png"
+                alt="en svärmorstunga (Sansevieria) i vit keramik kruka"
               />
             </li>
-            <li class="item" data-index="2">
+            <li class="item" style="--_pos: two">
               <img
-                src="./assets/images/gallery/two.png"
+                src="./assets/images/gallery/brocolli.png"
                 alt="Broccolihuvud som sticker ut från jorden."
               />
             </li>
-            <li class="item" data-index="3">
+            <li class="item" style="--_pos: three">
               <img
-                src="./assets/images/gallery/three.png"
+                src="./assets/images/gallery/orange-lilja.png"
                 alt="Orange lilja i närbild mot grön bakgrund."
               />
             </li>
-            <li class="item" data-index="4">
+            <li class="item" style="--_pos: four">
               <img
-                src="./assets/images/gallery/four.png"
+                src="./assets/images/gallery/radisar.png"
                 alt="Ny skördade rädisar."
               />
             </li>
-            <li class="item" data-index="5">
+            <li class="item" style="--_pos: five">
               <img
-                src="./assets/images/gallery/five.jpg"
+                src="./assets/images/gallery/tomato.jpg"
                 alt="Tomater odlade i trä containers."
               />
             </li>
-            <li class="item" data-index="6">
+            <li class="item" style="--_pos: six">
               <img
-                src="./assets/images/gallery/six.jpg"
-                alt="Två styken gurka med gul blomma."
+                src="./assets/images/gallery/gurka.jpg"
+                alt="Tre styken planterade små gurka med gul blomma."
               />
             </li>
           </ul>
@@ -127,272 +138,275 @@
         <!-- HERO END -->
 
         <section
-          class="subscribe fullwidth [utilities] py-lg clr-bg-primary-light1"
+          class="fullwidth breakin-grid breakin-grid-lg [utilities] py-lg clr-bg-primary-light1"
         >
-          <div class="breakin-grid grid-w-img flow">
-            <h2 class="title" id="subs-heading">
-              Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!
-            </h2>
-            <form action="#" method="post" class="subs-form">
-              <input
-                aria-labelledby="subs-heading"
-                name="email"
-                type="email"
-                autocomplete="email"
-                required
-              />
-              <button class="btn btn-primary" type="submit">Skicka</button>
-            </form>
-            <img aria-hidden="true" src="" alt="" />
-          </div>
+          <article
+            class="planting flex flex-center txt-center"
+            data-flow="reversed"
+          >
+            <aside aria-hidden="true" class="clr-bg-accent radius-900"></aside>
+            <main class="flow">
+              <h2 class="title" id="subs-heading">
+                Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!
+              </h2>
+              <form class="sub-form" action="#" method="post">
+                <input
+                  aria-labelledby="subs-heading"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="namn@domain.se"
+                  required
+                />
+                <button class="btn" data-variant="primary" type="submit">
+                  Skicka
+                </button>
+              </form>
+            </main>
+          </article>
         </section>
         <!-- SUBSCRIBE END- -->
 
-        <section class="cards">
+        <section class="cards flow">
           <h2 class="title txt-center">Alla våra växter</h2>
-          <div class="card-grid">
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Blommor</a></li>
-                <li><a class="link link-tag" href="#">Ätbart</a></li>
-                <li><a class="link link-tag" href="#">Grönska</a></li>
-              </ul>
-              <h3 class="heading">Gurka</h3>
-              <p>
-                Gurka växer snabbt, är enkel att odla och ger mängder med
-                gurkor, bara man är noga med vattning, omplantering, duschning
-                och gödsling.
-              </p>
-              <footer>
-                <img src="" alt="Coolio avatar" />
-                <a href="#">Coolio</a>
-                <time datetime="2024-04-01">2024-04-01</time>
+          <div class="cards-grid">
+            <article class="card clr-bg-primary-light1">
+              <header class="clr-bg-accent">
+                <img
+                  src="./assets/images/gallery/gurka.jpg"
+                  alt="Tre styken planterade små gurka med gul blomma."
+                />
+              </header>
+              <main class="flow">
+                <ul class="tags flex flex-wrap gap-100" role="list">
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Blommor</a>
+                  </li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Ätbart</a>
+                  </li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Grönska</a>
+                  </li>
+                </ul>
+                <h3 class="heading">Gurka</h3>
+                <p class="">
+                  Gurka växer snabbt, är enkel att odla och ger mängder med
+                  gurkor, bara man är noga med vattning, omplantering, duschning
+                  och gödsling.
+                </p>
+              </main>
+              <footer class="">
+                <img
+                  src="./assets/images/icon-avatar.svg"
+                  alt="Coolio avatar"
+                />
+                <div>
+                  <a href="#">Coolio</a>
+                  <p>
+                    <time datetime="2024-04-01">2024-04-01</time>
+                  </p>
+                </div>
               </footer>
             </article>
             <!-- coolio end -->
 
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Solälskande</a></li>
-                <li><a class="link link-tag" href="#">Lättodlat</a></li>
-                <li><a class="link link-tag" href="#">Ätbart</a></li>
-              </ul>
-              <h3 class="heading">Tomat</h3>
-              <p>
-                En perfekt grönsak att odla på balkongen eller i trädgården. Ger
-                riklig skörd under sommaren.
-              </p>
+            <article class="card clr-bg-primary-light1">
+              <header class="clr-bg-accent">
+                <img
+                  src="./assets/images/gallery/tomato.jpg"
+                  alt="Tomater odlade i trä containers."
+                />
+              </header>
+              <main class="flow">
+                <ul class="tags flex flex-wrap gap-100" role="list">
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Solälskande</a>
+                  </li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Lättodlat</a>
+                  </li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Ätbart</a>
+                  </li>
+                </ul>
+                <h3 class="heading">Tomat</h3>
+                <p>
+                  En perfekt grönsak att odla på balkongen eller i trädgården.
+                  Ger riklig skörd under sommaren.
+                </p>
+              </main>
               <footer>
-                <img src="" alt="Anna Odlare avatar" />
-                <a href="#">Anna Odlare</a>
-                <time datetime="2024-12-05">2024-12-05</time>
+                <img
+                  src="./assets/images/icon-avatar.svg"
+                  alt="Anna Odlare avatar"
+                />
+                <div>
+                  <a href="#">Anna Odlare</a>
+                  <p>
+                    <time datetime="2024-12-05">2024-12-05</time>
+                  </p>
+                </div>
               </footer>
             </article>
             <!-- Anna Odlare end -->
 
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Dekorativ</a></li>
-                <li><a class="link link-tag" href="#">Färgstark</a></li>
-                <li><a class="link link-tag" href="#">Tålig</a></li>
-                <li><a class="link link-tag" href="#">Blommor</a></li>
-              </ul>
+            <article class="card clr-bg-primary-light1">
+              <header class="clr-bg-accent">
+                <img
+                  src="./assets/images/gallery/pelagron.jpg"
+                  alt="Pelagron med röd och vita petaler."
+                />
+              </header>
+              <main class="flow">
+                <ul class="tags flex flex-wrap gap-100" role="list">
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Dekorativ</a>
+                  </li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Färgstark</a>
+                  </li>
+                  <li><a class="link" data-variant="tag" href="#">Tålig</a></li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Blommor</a>
+                  </li>
+                </ul>
+                <h3 class="heading">Pelargon</h3>
+                <p>
+                  En vacker och lättskött blomma som trivs både inne och ute
+                  under sommaren.
+                </p>
+              </main>
 
-              <h3 class="heading">Pelargon</h3>
-              <p>
-                En vacker och lättskött blomma som trivs både inne och ute under
-                sommaren.
-              </p>
               <footer>
-                <img src="" alt="Blomsterkalle avatar" />
-                <a href="#">Blomsterkalle</a>
-                <time datetime="2024-12-03">2024-12-03</time>
+                <img
+                  src="./assets/images/icon-avatar.svg"
+                  alt="Blomsterkalle avatar"
+                />
+                <div>
+                  <a href="#">Blomsterkalle</a>
+                  <p>
+                    <time datetime="2024-12-03">2024-12-03</time>
+                  </p>
+                </div>
               </footer>
             </article>
             <!-- Blomsterkalle end -->
 
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Dekorativ</a></li>
-                <li><a class="link link-tag" href="#">Färgstark</a></li>
-                <li><a class="link link-tag" href="#">Tålig</a></li>
-              </ul>
-              <h3 class="heading">Basilika</h3>
-              <p>
-                En fantastisk krydda för pastarätter och sallader. Trivs bäst i
-                ett soligt fönster.
-              </p>
+            <article class="card clr-bg-primary-light1">
+              <header class="clr-bg-accent">
+                <img
+                  src="./assets/images/gallery/basil.jpg"
+                  alt="Basilika odlad i brun keramik kruka"
+                />
+              </header>
+              <main class="flow">
+                <ul class="tags flex flex-wrap gap-100" role="list">
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Dekorativ</a>
+                  </li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Färgstark</a>
+                  </li>
+                  <li><a class="link" data-variant="tag" href="#">Tålig</a></li>
+                </ul>
+                <h3 class="heading">Basilika</h3>
+                <p>
+                  En fantastisk krydda för pastarätter och sallader. Trivs bäst
+                  i ett soligt fönster.
+                </p>
+              </main>
               <footer>
-                <img src="" alt="Krydd-Malin avatar" />
-                <a href="#">Krydd-Malin</a>
-                <time datetime="2024-12-07">2024-12-07</time>
+                <img
+                  src="./assets/images/icon-avatar.svg"
+                  alt="Krydd-Malin avatar"
+                />
+                <div>
+                  <a href="#">Krydd-Malin</a>
+                  <p>
+                    <time datetime="2024-12-07">2024-12-07</time>
+                  </p>
+                </div>
               </footer>
             </article>
             <!-- Krydd-Malin end -->
 
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Snabbväxande</a></li>
-                <li><a class="link link-tag" href="#">Ätbart</a></li>
-                <li><a class="link link-tag" href="#">Grönska</a></li>
-              </ul>
-              <h3 class="heading">Sallad</h3>
-              <p>
-                Sallad är en av de enklaste grönsakerna att odla och ger snabba
-                resultat för färska måltider.
-              </p>
+            <article class="card clr-bg-primary-light1">
+              <header class="clr-bg-accent">
+                <img
+                  src="./assets/images/gallery/salad.jpg"
+                  alt="Olika slag av salad i korg."
+                />
+              </header>
+              <main class="flow">
+                <ul class="tags flex flex-wrap gap-100" role="list">
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Snabbväxande</a>
+                  </li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Ätbart</a>
+                  </li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Grönska</a>
+                  </li>
+                </ul>
+                <h3 class="heading">Sallad</h3>
+                <p>
+                  Sallad är en av de enklaste grönsakerna att odla och ger
+                  snabba resultat för färska måltider.
+                </p>
+              </main>
               <footer>
-                <img src="" alt="Grönis avatar" />
-                <a href="#">Grönis</a>
-                <time datetime="2024-12-06">2024-12-06</time>
+                <img
+                  src="./assets/images/icon-avatar.svg"
+                  alt="Grönis avatar"
+                />
+                <div>
+                  <a href="#">Grönis</a>
+                  <p>
+                    <time datetime="2024-12-06">2024-12-06</time>
+                  </p>
+                </div>
               </footer>
             </article>
             <!-- Grönis end -->
 
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Luftfuktande</a></li>
-                <li><a class="link link-tag" href="#">Grönska</a></li>
-                <li><a class="link link-tag" href="#">Dekorativ</a></li>
-              </ul>
-              <h3 class="heading">Ormbunke</h3>
-              <p>
-                En klassisk växt som passar perfekt i badrummet eller på
-                skuggiga platser.
-              </p>
+            <article class="card clr-bg-primary-light1">
+              <header class="clr-bg-accent">
+                <img
+                  src="./assets/images/gallery/ormbunke.png"
+                  alt="en svärmorstunga (Sansevieria) i vit keramik kruka"
+                />
+              </header>
+              <main class="flow">
+                <ul class="tags flex flex-wrap gap-100" role="list">
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Luftfuktande</a>
+                  </li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Grönska</a>
+                  </li>
+                  <li>
+                    <a class="link" data-variant="tag" href="#">Dekorativ</a>
+                  </li>
+                </ul>
+                <h3 class="heading">Ormbunke</h3>
+                <p>
+                  En klassisk växt som passar perfekt i badrummet eller på
+                  skuggiga platser.
+                </p>
+              </main>
               <footer>
-                <img src="" alt="Naturvännen avatar" />
-                <a href="#">Naturvännen</a>
-                <time datetime="2024-12-08">2024-12-08</time>
-              </footer>
-            </article>
-            <!-- Naturvännen end -->
-
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Blommor</a></li>
-                <li><a class="link link-tag" href="#">Ätbart</a></li>
-                <li><a class="link link-tag" href="#">Grönska</a></li>
-              </ul>
-              <h3 class="heading">Gurka</h3>
-              <p>
-                Gurka växer snabbt, är enkel att odla och ger mängder med
-                gurkor, bara man är noga med vattning, omplantering, duschning
-                och gödsling.
-              </p>
-              <footer>
-                <img src="" alt="Coolio avatar" />
-                <a href="#">Coolio</a>
-                <time datetime="2024-04-01">2024-04-01</time>
-              </footer>
-            </article>
-            <!-- coolio end -->
-
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Solälskande</a></li>
-                <li><a class="link link-tag" href="#">Lättodlat</a></li>
-                <li><a class="link link-tag" href="#">Ätbart</a></li>
-              </ul>
-              <h3 class="heading">Tomat</h3>
-              <p>
-                En perfekt grönsak att odla på balkongen eller i trädgården. Ger
-                riklig skörd under sommaren.
-              </p>
-              <footer>
-                <img src="" alt="Anna Odlare avatar" />
-                <a href="#">Anna Odlare</a>
-                <time datetime="2024-12-05">2024-12-05</time>
-              </footer>
-            </article>
-            <!-- Anna Odlare end -->
-
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Dekorativ</a></li>
-                <li><a class="link link-tag" href="#">Färgstark</a></li>
-                <li><a class="link link-tag" href="#">Tålig</a></li>
-                <li><a class="link link-tag" href="#">Blommor</a></li>
-              </ul>
-
-              <h3 class="heading">Pelargon</h3>
-              <p>
-                En vacker och lättskött blomma som trivs både inne och ute under
-                sommaren.
-              </p>
-              <footer>
-                <img src="" alt="Blomsterkalle avatar" />
-                <a href="#">Blomsterkalle</a>
-                <time datetime="2024-12-03">2024-12-03</time>
-              </footer>
-            </article>
-            <!-- Blomsterkalle end -->
-
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Dekorativ</a></li>
-                <li><a class="link link-tag" href="#">Färgstark</a></li>
-                <li><a class="link link-tag" href="#">Tålig</a></li>
-              </ul>
-              <h3 class="heading">Basilika</h3>
-              <p>
-                En fantastisk krydda för pastarätter och sallader. Trivs bäst i
-                ett soligt fönster.
-              </p>
-              <footer>
-                <img src="" alt="Krydd-Malin avatar" />
-                <a href="#">Krydd-Malin</a>
-                <time datetime="2024-12-07">2024-12-07</time>
-              </footer>
-            </article>
-            <!-- Krydd-Malin end -->
-
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Snabbväxande</a></li>
-                <li><a class="link link-tag" href="#">Ätbart</a></li>
-                <li><a class="link link-tag" href="#">Grönska</a></li>
-              </ul>
-              <h3 class="heading">Sallad</h3>
-              <p>
-                Sallad är en av de enklaste grönsakerna att odla och ger snabba
-                resultat för färska måltider.
-              </p>
-              <footer>
-                <img src="" alt="Grönis avatar" />
-                <a href="#">Grönis</a>
-                <time datetime="2024-12-06">2024-12-06</time>
-              </footer>
-            </article>
-            <!-- Grönis end -->
-
-            <article class="card">
-              <img src="" alt="" />
-              <ul class="tags" role="list">
-                <li><a class="link link-tag" href="#">Luftfuktande</a></li>
-                <li><a class="link link-tag" href="#">Grönska</a></li>
-                <li><a class="link link-tag" href="#">Dekorativ</a></li>
-              </ul>
-              <h3 class="heading">Ormbunke</h3>
-              <p>
-                En klassisk växt som passar perfekt i badrummet eller på
-                skuggiga platser.
-              </p>
-              <footer>
-                <img src="" alt="Naturvännen avatar" />
-                <a href="#">Naturvännen</a>
-                <time datetime="2024-12-08">2024-12-08</time>
+                <img
+                  src="./assets/images/icon-avatar.svg"
+                  alt="Naturvännen avatar"
+                />
+                <div>
+                  <a href="#">Naturvännen</a>
+                  <p>
+                    <time datetime="2024-12-08">2024-12-08</time>
+                  </p>
+                </div>
               </footer>
             </article>
             <!-- Naturvännen end -->
@@ -401,54 +415,67 @@
         <!-- CARDS END -->
 
         <section
-          class="plants-history fullwidth [utilities] py-lg clr-bg-primary-light1"
+          class="fullwidth breakin-grid breakin-grid-lg [utilities] py-lg clr-bg-primary-light1"
         >
-          <div class="breakin-grid grid-w-img flow" data-state="reversed">
-            <h2 class="title">Våra tidigare odlingar</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aspernatur ratione quia eos pariatur deserunt veritatis. Tenetur,
-              ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum,
-              dolor distinctio nam quaerat doloribus?
-            </p>
-            <a href="#" class="link link-primary">Planterade plantor</a>
-          </div>
+          <article class="planting flex flex-center txt-center">
+            <aside aria-hidden="true" class="clr-bg-accent radius-900"></aside>
+            <main class="flow">
+              <h2 class="title">Våra tidigare odlingar</h2>
+              <p class="content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aspernatur ratione quia eos pariatur deserunt veritatis.
+                Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet
+                nostrum, dolor distinctio nam quaerat doloribus?
+              </p>
+              <a class="link" data-variant="primary" href="#"
+                >Planterade plantor</a
+              >
+            </main>
+          </article>
         </section>
       </main>
       <!-- MAIN END -->
 
       <footer
-        class="page-footer [compisitions] fullwidth flow [utilities] py-lg clr-bg-accent"
+        class="page-footer [compisitions] fullwidth [utilities] py-lg clr-bg-accent"
       >
-        <h2 class="title">Om oss</h2>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque,
-          veniam ducimus aut sint atque ullam alias perspiciatis fuga.
-          Consequuntur nesciunt ea corrupti aperiam fugit inventore ratione
-          earum. Iure, eius molestias?
-        </p>
-        <ul role="list">
-          <li>
-            Telefon:
-            <a href="tel:+460201234567"
-              ><i aria-hidden="true"></i>020-1234567</a
-            >
-          </li>
-          <li>
-            E-post:
-            <a href="mailto:info@plannedplant.com"
-              ><i aria-hidden="true"></i>info@plannedplant.com</a
-            >
-          </li>
-        </ul>
-        <nav class="footer-nav" aria-label="Fot navigaering">
-          <ul role="list">
-            <li><a href="#">Hem</a></li>
-            <li><a href="#">Historik</a></li>
-            <li><a href="#">Tips</a></li>
-            <li><a href="#">Kontakt</a></li>
-          </ul>
-        </nav>
+        <div class="container flow">
+          <div class="left flow">
+            <h2 class="title">Om oss</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque,
+              veniam ducimus aut sint atque ullam alias perspiciatis fuga.
+              Consequuntur nesciunt ea corrupti aperiam fugit inventore ratione
+              earum. Iure, eius molestias?
+            </p>
+            <ul role="list">
+              <li>
+                <b
+                  >Telefon:
+                  <a href="tel:+460201234567"
+                    ><i aria-hidden="true"></i>020-1234567</a
+                  >
+                </b>
+              </li>
+              <li>
+                <b
+                  >E-post:
+                  <a href="mailto:info@plannedplant.com"
+                    ><i aria-hidden="true"></i>info@plannedplant.com</a
+                  >
+                </b>
+              </li>
+            </ul>
+          </div>
+          <nav class="nav-footer right" aria-label="Fot navigaering">
+            <ul class="flow" role="list">
+              <li><a href="#">Hem</a></li>
+              <li><a href="#">Historik</a></li>
+              <li><a href="#">Tips</a></li>
+              <li><a href="#">Kontakt</a></li>
+            </ul>
+          </nav>
+        </div>
       </footer>
       <!-- FOOTER END -->
     </div>

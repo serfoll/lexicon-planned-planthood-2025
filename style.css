@@ -251,6 +251,8 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   font-size: var(--fs-200);
   text-transform: uppercase;
   background-color: var(--clr-primary-light-3);
+  padding-inline: var(--spacing-base-sm);
+  padding-block: 0.24rem;
   color: var(--clr-primary-light-1);
 
   &:hover {
@@ -499,18 +501,19 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 
 /* cards */
 .cards > .cards-grid {
-  --_gap: var(--spacing-base-sm);
+  --_gap: var(--spacing-base);
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
     minmax(min(100%, var(--_content-width) / 4 - var(--_gap) * 4), 1fr)
   );
-  gap: var(--spacing-base);
+  gap: var(--_gap);
 
   .card {
     --_link-index: 4;
     display: grid;
-    padding-block-end: var(--spacing-base);
+    grid-template-rows: max-content;
+    gap: var(--_gap);
     border-radius: var(--radius-100);
     box-shadow: var(--border-shadow);
     overflow: hidden;
@@ -554,7 +557,15 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     }
 
     > main {
-      padding: var(--_gap) var(--spacing-base);
+      padding-inline: var(--_gap);
+
+      > .tags {
+        block-size: 3.8rem;
+        overflow: hidden;
+        @media (width <= 540px) {
+          block-size: fit-content;
+        }
+      }
 
       a {
         position: relative;

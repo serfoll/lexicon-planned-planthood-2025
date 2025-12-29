@@ -443,7 +443,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     background-size: 50%;
   }
 
-  > main {
+  > section {
     inline-size: 100%;
     display: grid;
 
@@ -507,6 +507,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     auto-fit,
     minmax(min(100%, var(--_content-width) / 4 - var(--_gap) * 4), 1fr)
   );
+  grid-template-rows: masonry;
   gap: var(--_gap);
 
   .card {
@@ -556,15 +557,12 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
       }
     }
 
-    > main {
+    > .content {
       padding-inline: var(--_gap);
 
       > .tags {
         block-size: 3.8rem;
         overflow: hidden;
-        @media (width <= 540px) {
-          block-size: fit-content;
-        }
       }
 
       a {

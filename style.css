@@ -180,7 +180,7 @@ body {
     background-color: var(--clr-accent);
     color: var(--clr-primary-light-1);
 
-    &:is(hover, :active) {
+    &:is(:hover, :active) {
       background-color: var(--clr-primary-light-1);
       color: var(--clr-accent);
       border: var(--border-accent-100);
@@ -321,9 +321,34 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   inset-block-start: 0;
   z-index: 9999;
 
-  a {
+  a,
+  > .hamburger {
     border-radius: 0.12rem;
+    position: relative;
     overflow: hidden;
+    padding-block: var(--spacing-base-sm);
+
+    &::after {
+      display: block;
+      content: '';
+      inline-size: 100%;
+      block-size: 100%;
+      position: absolute;
+      z-index: -1;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 200ms ease-in-out;
+      background-color: var(--clr-accent);
+    }
+
+    &:is(:hover) {
+      color: var(--clr-accent-light-1);
+      &::after {
+        transform: scaleX(1);
+      }
+    }
   }
 
   > .brand {
@@ -331,11 +356,11 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     grid-row: 1/1;
     justify-self: start;
     gap: var(--spacing-base-sm);
+    padding-inline: var(--spacing-base);
 
-    &:is(:hover) {
-      color: var(--clr-accent-light-5);
-      text-decoration: none;
-    }
+    font-weight: var(--fw-600);
+    line-height: 0.8;
+    text-transform: uppercase;
 
     > svg {
       block-size: var(--_size);
@@ -360,34 +385,11 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 
     > .item > .link-nav {
       display: block;
-      padding-block: var(--spacing-base-sm);
       text-decoration: none;
       padding-inline-start: var(--spacing-base);
       position: relative;
 
-      &::after {
-        display: block;
-        content: '';
-        inline-size: 100%;
-        block-size: 100%;
-        position: absolute;
-        z-index: -1;
-        inset-block-start: 0;
-        inset-inline-start: 0;
-        transform-origin: left;
-        transform: scaleX(0);
-        transition: transform 200ms ease-in-out;
-        background-color: var(--clr-accent);
-      }
-
       &[data-state='current'] {
-        color: var(--clr-accent-light-1);
-        &::after {
-          transform: scaleX(1);
-        }
-      }
-
-      &:is(:hover) {
         color: var(--clr-accent-light-1);
         &::after {
           transform: scaleX(1);
@@ -615,10 +617,22 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 
   .left {
     inline-size: min(100%, 80ch);
-    > [role='list'] {
+    > address {
       font-weight: var(--fw-700);
-      > * + * {
-        margin-block-start: var(--spacing-base);
+
+      > a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-block: 0.5rem;
+
+        &:is([href^='mail'])::before {
+          content: url(./assets/images/icon-email.svg);
+        }
+
+        &:is([href^='tel'])::before {
+          content: url(./assets/images/icon-phone.svg);
+        }
       }
     }
   }
@@ -635,7 +649,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
         border-block-end: 0.12rem solid transparent;
 
         &:is(:hover, :focus-visible) {
-          border-block-end-color: var(--clr-primary-light-1);
+          text-decoration: underline;
         }
       }
     }
@@ -643,8 +657,11 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 
   @media (width > 540px) {
     display: flex;
-    > .nav-footer > [role='list'] {
-      flex-direction: column;
+    > .nav-footer {
+      margin-block-start: 0;
+      > [role='list'] {
+        flex-direction: column;
+      }
     }
   }
 }
@@ -653,6 +670,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 /* mobile navigation */
 @media (width <= 1024px) {
   .page-header > .hamburger {
+    --_size: 3rem;
     display: block;
     --_clr-txt: var(--clr-neutral-400);
 
@@ -660,14 +678,17 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     justify-self: end;
     align-self: center;
 
-    block-size: max-content;
-    inline-size: 2rem;
+    block-size: 3rem;
+    aspect-ratio: 1;
     overflow-x: hidden;
     cursor: pointer;
     color: var(--_clr-txt);
 
-    > .icon-menu > line {
-      transition: transform 250ms ease-in-out;
+    > .icon-menu {
+      margin-inline: auto;
+      > line {
+        transition: transform 250ms ease-in-out;
+      }
     }
   }
 
@@ -715,7 +736,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     &:has(.nav-box:checked) {
       > .icon-menu > line {
         &:nth-of-type(1) {
-          transform: rotate(45deg) translate(0.28em, -0.3rem);
+          transform: rotate(45deg) translate(0.3rem, -0.35rem);
         }
 
         &:nth-of-type(2) {
@@ -724,7 +745,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 
         &:nth-of-type(3) {
           border: 1px solid sandybrown;
-          transform: rotate(-45deg) translate(-0.85rem, -0.1rem);
+          transform: rotate(-45deg) translate(-0.8rem, -0.1rem);
         }
       }
 

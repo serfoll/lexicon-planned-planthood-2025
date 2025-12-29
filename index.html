@@ -17,7 +17,6 @@
     />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="./style.css" />
-
     <title>Planned Planthood</title>
   </head>
   <body>
@@ -139,20 +138,21 @@
         <!-- HERO END -->
 
         <section
-          class="fullwidth breakin-grid breakin-grid-lg [utilities] py-lg clr-bg-primary-light1"
+          class="[blocks] subscribe [compositions] fullwidth breakin-grid-lg [utilities] py-lg clr-bg-primary-light1"
         >
-          <article
-            class="planting flex flex-center txt-center"
-            data-flow="reversed"
-          >
-            <aside aria-hidden="true" class="clr-bg-accent radius-900"></aside>
-            <section class="flow">
-              <h2 class="title" id="subs-heading">
+          <div class="container flex flex-center" data-flow="reversed">
+            <div
+              class="[blocks] section-img [utilities] clr-bg-accent radius-900"
+              aria-hidden="true"
+            ></div>
+
+            <div class="content flow">
+              <h2 class="title" id="subscribe-heading">
                 Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!
               </h2>
               <form class="sub-form" action="#" method="post">
                 <input
-                  aria-labelledby="subs-heading"
+                  aria-labelledby="subscribe-heading"
                   name="email"
                   type="email"
                   autocomplete="email"
@@ -163,8 +163,8 @@
                   Skicka
                 </button>
               </form>
-            </section>
-          </article>
+            </div>
+          </div>
         </section>
         <!-- SUBSCRIBE END- -->
 
@@ -422,29 +422,32 @@
         <!-- CARDS END -->
 
         <section
-          class="fullwidth breakin-grid breakin-grid-lg [utilities] py-lg clr-bg-primary-light1"
+          class="[blocks] history [compositions] fullwidth breakin-grid breakin-grid-lg [utilities] py-lg clr-bg-primary-light1"
         >
-          <article class="planting flex flex-center txt-center">
-            <aside aria-hidden="true" class="clr-bg-accent radius-900"></aside>
-            <section class="flow">
+          <div class="container flex flex-center">
+            <div
+              class="[blocks] section-img [utilities] clr-bg-accent radius-900"
+              aria-hidden="true"
+            ></div>
+            <article class="content [compositions] grid flow">
               <h2 class="title">Våra tidigare odlingar</h2>
-              <p class="content">
+              <p class="text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Aspernatur ratione quia eos pariatur deserunt veritatis.
                 Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet
                 nostrum, dolor distinctio nam quaerat doloribus?
               </p>
-              <a class="link" data-variant="primary" href="#"
-                >Planterade plantor</a
-              >
-            </section>
-          </article>
+              <a class="link" data-variant="primary" href="#">
+                Planterade plantor
+              </a>
+            </article>
+          </div>
         </section>
       </main>
       <!-- MAIN END -->
 
       <footer
-        class="page-footer [compisitions] fullwidth [utilities] py-lg clr-bg-accent"
+        class="page-footer [compositions] fullwidth [utilities] py-lg clr-bg-accent"
       >
         <div class="container flow">
           <div class="left flow">

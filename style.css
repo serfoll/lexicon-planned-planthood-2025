@@ -79,8 +79,9 @@
   --spacing-base: 1rem;
   --spacing-base-sm: 0.5rem;
 
-  --flow-space: 1.75em;
-  --flow-space-lg: 4em;
+  --flow-space: 1.75rem;
+  --flow-space-lg: 4rem;
+  --flow-space-xl: 6rem;
 
   /* border */
   --border-accent-100: 0.06rem solid var(--clr-accent);
@@ -95,7 +96,7 @@
   --outline-offset-100: 0.18rem;
 }
 
-/*** Global/base ***/
+/*** GLOBAL/BASE ***/
 :focus-visible {
   outline: var(--outline-accent-100);
   outline-offset: var(--outline-offset-100);
@@ -134,7 +135,7 @@ body {
   color: var(--clr-primary-dark);
 }
 
-/*** Utilities ***/
+/*** UTILITIES ***/
 .clr-bg-accent {
   background-color: var(--clr-accent);
   color: var(--clr-accent-light-1);
@@ -142,10 +143,6 @@ body {
 
 .clr-bg-primary-light1 {
   background-color: var(--clr-primary-light-1);
-}
-
-.fit-content-block {
-  block-size: fit-content;
 }
 
 .py-lg {
@@ -168,7 +165,11 @@ body {
   text-align: center;
 }
 
-/*** Composition ***/
+/*** COMPOSITION ***/
+.btn {
+  cursor: pointer;
+}
+
 .btn,
 .link {
   padding-block: var(--spacing-base-sm);
@@ -186,10 +187,6 @@ body {
       border: var(--border-accent-100);
     }
   }
-}
-
-.btn {
-  cursor: pointer;
 }
 
 .flow > * + * {
@@ -307,20 +304,16 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   }
 }
 
-/* blocks */
+/*** BLOCKS ***/
 
 /* header */
 .page-header {
-  align-content: center;
-  justify-content: center;
-  position: relative;
-  padding-block: var(--spacing-base);
   background-color: var(--clr-primary-light-1);
-
   position: sticky;
+  z-index: 9999; /* bring to top most front */
   inset-block-start: 0;
-  z-index: 9999;
 
+  /* add backdrop to <a> elements and hamburger icon*/
   a,
   > .hamburger {
     border-radius: 0.12rem;
@@ -331,12 +324,9 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     &::after {
       display: block;
       content: '';
-      inline-size: 100%;
-      block-size: 100%;
+      inset: 0; /*push in to full size*/
       position: absolute;
       z-index: -1;
-      inset-block-start: 0;
-      inset-inline-start: 0;
       transform-origin: left;
       transform: scaleX(0);
       transition: transform 200ms ease-in-out;
@@ -378,16 +368,13 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   grid-row: 1/1;
 
   > .list {
-    display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: var(--flow-space);
 
     > .item > .link-nav {
       display: block;
-      text-decoration: none;
       padding-inline-start: var(--spacing-base);
-      position: relative;
 
       &[data-state='current'] {
         color: var(--clr-accent-light-1);
@@ -411,7 +398,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     box-shadow: var(--border-shadow);
     grid-template-rows: repeat(2, minmax(15rem, 1fr));
 
-    @media (width > 32rem) {
+    @media (width > 600px) {
       grid-template-areas:
         'one two three'
         'four five six';
@@ -423,21 +410,19 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
       grid-template-areas:
         'one one two three four four'
         'one one five five six six';
-      overflow: hidden;
     }
 
     > .item {
-      inline-size: 100%;
-      block-size: 100%;
+      --_size: 100%;
+      inline-size: var(--_size);
+      block-size: var(--_size);
+      grid-area: var(--_pos);
+
       img {
-        inline-size: 100%;
-        block-size: 100%;
+        inline-size: var(--_size);
+        block-size: var(--_size);
         object-fit: cover;
       }
-    }
-
-    > li {
-      grid-area: var(--_pos);
     }
   }
 }
@@ -446,12 +431,10 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 .history {
   > .container {
     flex-direction: column;
-    gap: clamp(4rem, 2.5vw + 0.5rem, 6rem);
+    gap: clamp(var(--flow-space-lg), 2.5vw + 0.5rem, var(--flow-space-xl));
 
     .section-img {
-      --_size: min(100%, 30rem);
-      inline-size: var(--_size);
-      flex-grow: 1;
+      inline-size: min(100%, 30rem);
       aspect-ratio: 1;
       background-image: url(./assets/images/icon-planting.svg);
       background-position: center;
@@ -462,9 +445,13 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     > .content {
       inline-size: 100%;
       text-align: center;
+
+      > .link {
+        justify-self: center;
+      }
     }
 
-    @media (width > 540px) {
+    @media (width > 600px) {
       flex-direction: row;
 
       &[data-flow='reversed'] {
@@ -506,25 +493,25 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 }
 
 /* cards */
+/* learn subgrid in 14 minuts https://www.youtube.com/watch?v=Yl8hg2FG20Q */
 .cards > .cards-grid {
   --_gap: var(--spacing-base);
-  display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(min(100%, var(--_content-width) / 4 - var(--_gap) * 4), 1fr)
+    minmax(min(100%, var(--_content-width) / 4 - var(--_gap) * 3), 1fr)
   );
   gap: var(--_gap);
 
   .card {
     --_link-index: 4;
     display: grid;
-    grid-template-rows: max-content;
-
+    grid-template-rows: subgrid;
+    grid-row: span 3;
     border-radius: var(--radius-100);
-    box-shadow: var(--border-shadow);
     overflow: hidden;
     position: relative;
     transition: transform 150ms ease-out;
+    box-shadow: var(--border-shadow);
 
     &:is(:hover, :focus-within) {
       box-shadow: 0 0 10px 1px hsl(0 0% 0% / 0.25);
@@ -545,33 +532,30 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     > .read-more {
       display: block;
       position: absolute;
-      inline-size: 100%;
-      block-size: 100%;
+      inset: 0;
       z-index: calc(var(--_link-index) - 1);
     }
 
     > header {
       position: relative;
-      block-size: 350px;
+      block-size: 300px;
       overflow: hidden;
       inline-size: 100%;
 
       > img {
-        block-size: 100%;
-        width: 100%;
+        block-size: stretch;
+        inline-size: stretch;
         object-fit: cover;
       }
 
       &::before {
-        display: block;
         content: '';
-        block-size: 100%;
-        inline-size: 100%;
+        inset: 0;
         position: absolute;
         background: url(./assets/images/icon-watermark.svg) no-repeat center;
-        background-size: 40%;
-        background-color: hsl(0 0% 0% / 0.7);
-        opacity: 0.3;
+        background-size: 35%;
+        background-color: hsl(from var(--clr-accent) h s l / 0.7);
+        opacity: 0.4;
       }
     }
 
@@ -601,30 +585,21 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   }
 }
 
-.history .content {
-  > .link {
-    justify-self: center;
-  }
-}
-
 /* .page-footer */
-.page-footer > .container {
-  gap: var(--flow-space-lg);
-
+.page-footer {
   a {
     color: var(--clr-primary-light-1);
   }
 
-  .left {
-    inline-size: min(100%, 80ch);
+  > .content {
     > address {
       font-weight: var(--fw-700);
 
-      > a {
+      > .link-contact {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        margin-block: 0.5rem;
+        gap: var(--spacing-base-sm);
+        margin-block: var(--spacing-base-sm);
 
         &:is([href^='mail'])::before {
           content: url(./assets/images/icon-email.svg);
@@ -637,31 +612,33 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     }
   }
 
-  > .nav-footer {
-    margin-inline-start: auto;
+  [role='list'] > .item > .link-nav {
+    display: block;
+    padding-block: var(--spacing-base-sm);
+    padding-inline: initial;
+    border-radius: initial;
+    border-block-end: 0.12rem solid transparent;
 
-    > [role='list'] {
-      > .item > .link-nav {
-        display: block;
-        padding-block: var(--spacing-base-sm);
-        padding-inline: initial;
-        border-radius: initial;
-        border-block-end: 0.12rem solid transparent;
-
-        &:is(:hover, :focus-visible) {
-          text-decoration: underline;
-        }
-      }
+    &:is(:hover, :focus-visible) {
+      text-decoration: underline;
     }
   }
 
-  @media (width > 540px) {
-    display: flex;
+  @media (width > 800px) {
+    > .content {
+      inline-size: clamp(30ch, 60vw + 0.1rem, 80ch);
+      grid-row: 1 / 1;
+    }
     > .nav-footer {
+      grid-row: 1 / span 3;
+      grid-column: 4/5;
       margin-block-start: 0;
-      > [role='list'] {
-        flex-direction: column;
-      }
+    }
+  }
+
+  @media (width > 1024px) {
+    > .nav-footer {
+      justify-self: end;
     }
   }
 }
@@ -670,9 +647,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 /* mobile navigation */
 @media (width <= 1024px) {
   .page-header > .hamburger {
-    --_size: 3rem;
     display: block;
-    --_clr-txt: var(--clr-neutral-400);
 
     grid-row: 1/1;
     justify-self: end;
@@ -682,7 +657,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     aspect-ratio: 1;
     overflow-x: hidden;
     cursor: pointer;
-    color: var(--_clr-txt);
+    color: var(--clr-neutral-400);
 
     > .icon-menu {
       margin-inline: auto;
@@ -693,16 +668,17 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   }
 
   .page-header > .nav-main {
-    --_top: 5rem; /*64px*/
+    --_top-offset: 3.6rem; /*58px*/
     --_pos: 0.6rem; /*10px*/
+
     grid-column: auto;
     grid-row: auto;
-    block-size: calc(100vh - var(--_top));
+    block-size: calc(100vh - var(--_top-offset));
     inline-size: 100vw;
     padding-block-start: var(--flow-space);
 
     position: absolute;
-    inset-block-start: var(--_top);
+    inset-block-start: var(--_top-offset);
     inset-inline-start: var(--_pos);
 
     transform: rotateX(-90deg) translateX(calc(var(--_pos) * -1)); /* rotateX to collapse */
@@ -710,7 +686,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     transition: 300ms all ease-out;
 
     background-color: var(--clr-primary-light-1);
-    opacity: 0.3;
+    opacity: 0;
 
     > .list {
       flex-direction: column;
@@ -727,10 +703,6 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
     &:is(:focus-within) {
       outline: 0.12rem dashed var(--clr-accent);
       outline-offset: 0.18rem;
-    }
-
-    &:has(:hover, :active) {
-      --_clr-txt: var(--clr-neutral-900);
     }
 
     &:has(.nav-box:checked) {

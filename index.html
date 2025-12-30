@@ -71,7 +71,7 @@
           class="nav-main content-grid fullwidth"
           aria-label="Huvud navigering"
         >
-          <ul class="list" role="list">
+          <ul class="list flex" role="list">
             <li class="item">
               <a href="#" class="link link-nav" data-state="current">Hem</a>
             </li>
@@ -170,7 +170,7 @@
 
         <section class="cards flow">
           <h2 class="title txt-center">Alla våra växter</h2>
-          <div class="cards-grid">
+          <div class="grid cards-grid">
             <article class="card clr-bg-primary-light1">
               <header class="clr-bg-accent">
                 <img
@@ -459,37 +459,38 @@
       <!-- MAIN END -->
 
       <footer
-        class="page-footer [compositions] fullwidth [utilities] py-lg clr-bg-accent"
+        class="page-footer [compositions] fullwidth flow-lg [utilities] py-lg clr-bg-accent"
       >
-        <div class="container flow">
-          <article class="left flow">
-            <h2 class="title">Om oss</h2>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque,
-              veniam ducimus aut sint atque ullam alias perspiciatis fuga.
-              Consequuntur nesciunt ea corrupti aperiam fugit inventore ratione
-              earum. Iure, eius molestias?
-            </p>
-            <address>
-              <a href="tel:+460201234567"> Telefon: 020-1234567 </a>
-              <a href="mailto:info@plannedplant.com">
-                E-post: info@plannedplant.com
-              </a>
-            </address>
-          </article>
-          <nav class="nav-footer right" aria-label="Fot navigaering">
-            <ul role="list">
-              <li class="item"><a class="link link-nav" href="#">Hem</a></li>
-              <li class="item">
-                <a class="link link-nav" href="#">Historik</a>
-              </li>
-              <li class="item"><a class="link link-nav" href="#">Tips</a></li>
-              <li class="item">
-                <a class="link link-nav" href="#">Kontakt</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <article class="content flow">
+          <h2 class="title">Om oss</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque,
+            veniam ducimus aut sint atque ullam alias perspiciatis fuga.
+            Consequuntur nesciunt ea corrupti aperiam fugit inventore ratione
+            earum. Iure, eius molestias?
+          </p>
+          <address>
+            <a class="link-contact" href="tel:+460201234567">
+              Telefon: 020-1234567
+            </a>
+            <a class="link-contact" href="mailto:info@plannedplant.com">
+              E-post: info@plannedplant.com
+            </a>
+          </address>
+        </article>
+
+        <nav class="nav-footer" aria-label="Fot navigaering">
+          <ul class="flow" role="list">
+            <li class="item"><a class="link link-nav" href="#">Hem</a></li>
+            <li class="item">
+              <a class="link link-nav" href="#">Historik</a>
+            </li>
+            <li class="item"><a class="link link-nav" href="#">Tips</a></li>
+            <li class="item">
+              <a class="link link-nav" href="#">Kontakt</a>
+            </li>
+          </ul>
+        </nav>
       </footer>
       <!-- FOOTER END -->
     </div>

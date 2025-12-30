@@ -4,25 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- preload images -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="preload"
+      href="./assets/images/gallery/ormbunke.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="./assets/images/gallery/brocolli.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="./assets/images/gallery/orange-lilja.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="./assets/images/gallery/radisar.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="./assets/images/gallery/tomato.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="./assets/images/gallery/gurka.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
+    <!-- typography -->
+    <link
+      rel="preload"
+      href="./assets/fonts/open-sans/OpenSans-VariableFont_wdth-wght.ttf"
       as="font"
       type="font/ttf"
       crossorigin
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="preload" href="./css/typography.css" as="style" />
+    <link rel="stylesheet" href="./css/typography.css" />
+
+    <link rel="preload" href="./css/reset.css" as="style" />
+    <link rel="stylesheet" href="./css/reset.css" />
+
+    <link rel="preload" href="./style.css" as="style" />
     <link rel="stylesheet" href="./style.css" />
+
     <title>Planned Planthood</title>
   </head>
   <body>
-    <div class="theme">
+    <ul class="theme">
       <header class="content-grid page-header">
-        <a class="brand flex flex-center" href="#">
+        <a class="brand flex flex-center" href="/">
           <svg
             width="214"
             height="210"
@@ -86,50 +134,59 @@
 
       <main class="content-grid flow-lg [utilities] py-lg">
         <section class="hero fullwidth flow txt-center">
-          <div class="breakin-grid flow">
-            <h1 class="page-heading breakin-grid">Våra uppskattade växter</h1>
-            <p class="breakin-grid">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam, ex vero harum recusandae et, nemo ea, non fugit
-              sapiente sit dolore autem! Expedita illo deleniti maiores harum
-              consequatur debitis hic.
-            </p>
-          </div>
+          <h1 class="page-heading breakin-grid">Våra uppskattade växter</h1>
+          <p class="breakin-grid">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
+            ex vero harum recusandae et, nemo ea, non fugit sapiente sit dolore
+            autem! Expedita illo deleniti maiores harum consequatur debitis hic.
+          </p>
 
           <ul class="grid grid-gallery" role="list">
             <li class="item" style="--_pos: one">
               <img
-                src="./assets/images/gallery/ormbunke.png"
+                width="350"
+                height="350"
+                src="./assets/images/gallery/ormbunke.webp"
                 alt="en svärmorstunga (Sansevieria) i vit keramik kruka"
               />
             </li>
             <li class="item" style="--_pos: two">
               <img
-                src="./assets/images/gallery/brocolli.png"
+                width="350"
+                height="350"
+                src="./assets/images/gallery/brocolli.webp"
                 alt="Broccolihuvud som sticker ut från jorden."
               />
             </li>
             <li class="item" style="--_pos: three">
               <img
-                src="./assets/images/gallery/orange-lilja.png"
+                width="350"
+                height="350"
+                src="./assets/images/gallery/orange-lilja.webp"
                 alt="Orange lilja i närbild mot grön bakgrund."
               />
             </li>
             <li class="item" style="--_pos: four">
               <img
-                src="./assets/images/gallery/radisar.png"
+                width="350"
+                height="350"
+                src="./assets/images/gallery/radisar.webp"
                 alt="Ny skördade rädisar."
               />
             </li>
             <li class="item" style="--_pos: five">
               <img
-                src="./assets/images/gallery/tomato.jpg"
+                width="350"
+                height="350"
+                src="./assets/images/gallery/tomato.webp"
                 alt="Tomater odlade i trä containers."
               />
             </li>
             <li class="item" style="--_pos: six">
               <img
-                src="./assets/images/gallery/gurka.jpg"
+                width="350"
+                height="350"
+                src="./assets/images/gallery/gurka.webp"
                 alt="Tre styken gurka som växer på träd med en gul blomma."
               />
             </li>
@@ -170,14 +227,19 @@
 
         <section class="cards flow">
           <h2 class="title txt-center">Alla våra växter</h2>
-          <div class="grid cards-grid">
-            <article class="card clr-bg-primary-light1">
+
+          <ul role="list" class="grid cards-grid">
+            <li class="item grid">
+              <article class="card clr-bg-primary-light1">
               <header class="clr-bg-accent">
                 <img
-                  src="./assets/images/gallery/gurka.jpg"
+                  width="350"
+                  height="350"
+                  src="./assets/images/gallery/gurka.webp"
                   alt="Tre styken planterade små gurka med gul blomma."
                 />
               </header>
+
               <section class="flow card-content">
                 <ul class="tags flex flex-wrap gap-100" role="list">
                   <li>
@@ -197,6 +259,7 @@
                   och gödsling.
                 </p>
               </section>
+
               <footer class="">
                 <img
                   src="./assets/images/icon-avatar.svg"
@@ -213,12 +276,16 @@
                 ><span class="visually-hidden">Läs mer</span></a
               >
             </article>
+            </li>
             <!-- coolio end -->
 
-            <article class="card clr-bg-primary-light1">
+            <li class="item grid">
+              <article class="card clr-bg-primary-light1">
               <header class="clr-bg-accent">
                 <img
-                  src="./assets/images/gallery/tomato.jpg"
+                  width="350"
+                  height="350"
+                  src="./assets/images/gallery/tomato.webp"
                   alt="Tomater odlade i trä containers."
                 />
               </header>
@@ -256,15 +323,20 @@
                 ><span class="visually-hidden">Läs mer</span></a
               >
             </article>
+            </li>
             <!-- Anna Odlare end -->
 
-            <article class="card clr-bg-primary-light1">
+            <li class="item grid">
+              <article class="card clr-bg-primary-light1">
               <header class="clr-bg-accent">
                 <img
-                  src="./assets/images/gallery/pelagron.jpg"
+                  width="350"
+                  height="350"
+                  src="./assets/images/gallery/pelagron.webp"
                   alt="Pelagron med röd och vita petaler."
                 />
               </header>
+
               <section class="flow card-content">
                 <ul class="tags flex flex-wrap gap-100" role="list">
                   <li>
@@ -301,15 +373,19 @@
                 ><span class="visually-hidden">Läs mer</span></a
               >
             </article>
-            <!-- Blomsterkalle end -->
+            </li>
 
-            <article class="card clr-bg-primary-light1">
+            <li class="item grid">
+              <article class="card clr-bg-primary-light1">
               <header class="clr-bg-accent">
                 <img
-                  src="./assets/images/gallery/basil.jpg"
+                  width="350"
+                  height="350"
+                  src="./assets/images/gallery/basil.webp"
                   alt="Basilika odlad i brun keramik kruka"
                 />
               </header>
+
               <section class="flow card-content">
                 <ul class="tags flex flex-wrap gap-100" role="list">
                   <li>
@@ -326,6 +402,7 @@
                   i ett soligt fönster.
                 </p>
               </section>
+
               <footer>
                 <img
                   src="./assets/images/icon-avatar.svg"
@@ -342,15 +419,20 @@
                 ><span class="visually-hidden">Läs mer</span></a
               >
             </article>
+            </li>
             <!-- Krydd-Malin end -->
 
-            <article class="card clr-bg-primary-light1">
+            <li class="item grid">
+              <article class="card clr-bg-primary-light1">
               <header class="clr-bg-accent">
                 <img
-                  src="./assets/images/gallery/salad.jpg"
+                  width="350"
+                  height="350"
+                  src="./assets/images/gallery/salad.webp"
                   alt="Olika slag av salad i korg."
                 />
               </header>
+
               <section class="flow card-content">
                 <ul class="tags flex flex-wrap gap-100" role="list">
                   <li>
@@ -369,6 +451,7 @@
                   snabba resultat för färska måltider.
                 </p>
               </section>
+
               <footer>
                 <img
                   src="./assets/images/icon-avatar.svg"
@@ -385,15 +468,20 @@
                 ><span class="visually-hidden">Läs mer</span></a
               >
             </article>
+            </li>
             <!-- Grönis end -->
 
-            <article class="card clr-bg-primary-light1">
+            <li class="item grid">
+              <article class="card clr-bg-primary-light1">
               <header class="clr-bg-accent">
                 <img
-                  src="./assets/images/gallery/ormbunke.png"
+                  width="350"
+                  height="350"
+                  src="./assets/images/gallery/ormbunke.webp"
                   alt="en svärmorstunga (Sansevieria) i vit keramik kruka"
                 />
               </header>
+
               <section class="flow card-content">
                 <ul class="tags flex flex-wrap gap-100" role="list">
                   <li>
@@ -412,6 +500,7 @@
                   skuggiga platser.
                 </p>
               </section>
+
               <footer>
                 <img
                   src="./assets/images/icon-avatar.svg"
@@ -429,7 +518,8 @@
               >
             </article>
             <!-- Naturvännen end -->
-          </div>
+            </li>
+          </ul>
         </section>
         <!-- CARDS END -->
 

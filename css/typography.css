@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/open-sans/OpenSans-VariableFont_wdth-wght.ttf'),
+    format('TrueType');
+  font-weight: 400 500 600 700 800 900;
+}
+
+:root {
+  /* font weights definitions */
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  --fw-900: 900;
+
+  /* Font sizes definitions */
+  --fs-100: 0.625rem;
+  --fs-200: 0.75rem;
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3rem;
+
+  /*** Theme setup ***/
+
+  /* font family */
+  --font-base: 'Open Sans', 'Segoe UI', Tahoma, sans-serif;
+
+  /* Font weights assignments */
+  --fw-regular: var(--fw-400);
+  --fw-medium: var(--fw-500);
+  --fw-semi-bold: var(--fw-600);
+  --fw-bold: var(--fw-700);
+  --fw-x-bold: var(--fw-900);
+}

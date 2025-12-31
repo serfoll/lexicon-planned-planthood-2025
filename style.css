@@ -473,11 +473,16 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
   gap: var(--_gap);
 
   > .item {
+    --_row-span: span 3;
+    --_temp-col: subgrid;
+    grid-template-rows: var(--_temp-col);
+    grid-row: var(--_row-span);
+
     > .card {
       --_link-index: 4;
       display: grid;
-      grid-template-rows: subgrid;
-      grid-row: span 3;
+      grid-template-rows: var(--_temp-col);
+      grid-row: var(--_row-span);
       border-radius: var(--radius-100);
       overflow: hidden;
       position: relative;

@@ -16,18 +16,6 @@
   --clr-green-800: hsl(169, 86%, 12%);
   --clr-green-900: hsl(169, 80%, 12%);
 
-  --clr-robust: hsl(221, 63%, 32%);
-  --clr-green: hsl(110, 63%, 32%);
-  --clr-flower: hsl(2, 92%, 33%);
-  --clr-colorful: hsl(303, 55%, 47%);
-  --clr-sunloving: hsl(27, 88%, 33%);
-  --clr-air: hsl(180, 84%, 27%);
-  --clr-decorative: hsl(278, 79%, 40%);
-  --clr-edible: hsl(68, 61%, 30%);
-  --clr-easy: hsl(224, 86%, 58%);
-  --clr-fragrant: hsl(327, 51%, 47%);
-  --clr-fast: hsl(218, 11%, 34%);
-
   /* theme color assignments */
   --clr-accent: var(--clr-green-400);
   --clr-accent-light-1: var(--clr-green-100);
@@ -571,6 +559,10 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
 
         &:is([href^='tel'])::before {
           content: url(./assets/images/icon-phone.svg);
+        }
+
+        &:hover {
+          text-decoration: underline;
         }
       }
     }

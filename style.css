@@ -487,7 +487,7 @@ https://www.youtube.com/watch?v=cf-J4ffMBfo
         z-index: calc(var(--_link-index) - 1);
       }
 
-      > header {
+      > .img-wrapper {
         position: relative;
         block-size: 300px;
         overflow: hidden;
